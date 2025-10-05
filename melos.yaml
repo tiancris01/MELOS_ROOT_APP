@@ -1,0 +1,77 @@
+name: melos_root_app_workspace
+
+packages:
+  - "."
+  - "packages/**"
+
+melos:
+  useRootAsPackage: true
+  categories:
+    app:
+      - "."
+    packages:
+      - "packages/**"
+  dependencyOverrides:
+    utils:
+      path: packages/utils
+    ui_components:
+      path: packages/ui_components
+
+scripts:
+  # Bootstrap script to get dependencies for all packages
+  bootstrap:
+    description: "Install dependencies for all packages"
+    run: flutter pub get
+    exec:
+      concurrency: 1
+
+  # Clean script to clean all packages
+  clean:
+    description: "Clean all packages"
+    run: flutter clean
+    exec:
+      concurrency: 1
+
+  # Test script to run tests for all packages
+  test:
+    description: "Run tests for all packages"
+    run: flutter test
+    exec:
+      concurrency: 1
+      failFast: true
+
+  # Analyze script to analyze all packages
+  analyze:
+    description: "Analyze all packages"
+    run: flutter analyze
+    exec:
+      concurrency: 1
+      failFast: true
+
+  # Format script to format all packages
+  format:
+    description: "Format all packages"
+    run: dart format .
+    exec:
+      concurrency: 1
+
+  # Build script for the main app (root package)
+  build:app:
+    description: "Build the main Flutter app"
+    run: flutter build apk
+    packageFilters:
+      category: app
+
+  # Get dependencies for packages only
+  get:packages:
+    description: "Get dependencies for packages only"
+    run: flutter pub get
+    packageFilters:
+      category: packages
+
+  # Run tests for packages only
+  test:packages:
+    description: "Run tests for packages only"
+    run: flutter test
+    packageFilters:
+      category: packages
