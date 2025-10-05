@@ -36,8 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   # Local packages
-  utils: ^1.0.0
-  ui_components: ^1.0.0
+  utils: ^1.1.0
+  ui_components: ^1.1.0
 
 dev_dependencies:
   flutter_test:
