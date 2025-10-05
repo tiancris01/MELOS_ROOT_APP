@@ -75,3 +75,12 @@ scripts:
     run: flutter test
     packageFilters:
       category: packages
+
+  # Version and changelog management
+  version:dry:
+    description: "Preview version changes without applying them"
+    run: melos version --dry-run
+
+  changelog:
+    description: "Generate changelog for all packages"
+    run: melos version --dry-run --changelog
