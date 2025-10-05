@@ -20,6 +20,15 @@ void main() {
       expect(StringUtils.isPalindrome('A man a plan a canal Panama'), isTrue);
       expect(StringUtils.isPalindrome('hello'), isFalse);
     });
+
+    test('isBlank should detect empty or whitespace strings', () {
+      expect(StringUtils.isBlank(null), isTrue);
+      expect(StringUtils.isBlank(''), isTrue);
+      expect(StringUtils.isBlank('   '), isTrue);
+      expect(StringUtils.isBlank('\t\n'), isTrue);
+      expect(StringUtils.isBlank('hello'), isFalse);
+      expect(StringUtils.isBlank(' hello '), isFalse);
+    });
   });
 
   group('MathUtils', () {

@@ -16,4 +16,9 @@ class StringUtils {
     final cleaned = input.toLowerCase().replaceAll(' ', '');
     return cleaned == reverse(cleaned);
   }
+
+  /// Checks if a string is empty or contains only whitespace
+  static bool isBlank(String? input) {
+    return input == null || input.trim().isEmpty;
+  }
 }
